@@ -39,3 +39,15 @@ def editar_programador(_id):
         return redirect(url_for('programador.index'))
 
     return render_template('editar_programador.html', programador = programador)
+
+@programador.route('/excluir/<int:_id>', methods=['POST','GET'])
+def excluir_programador(_id):
+    programador = Programador.query.get_or_404(_id)
+
+    if request.method == 'POST':
+        db.session.delete(programador)
+        db.session.commit()
+
+        return redirect(url_for('programador.index'))
+
+    return render_template('excluir_programador.html', programador = programador)

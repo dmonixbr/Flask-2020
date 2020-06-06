@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Excluir o programador {{ programador.nome }}?</h1>
+<form action="" method="POST">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+    <input type="submit" value="Sim!" class="btn btn-danger btn-lg btn-block">
+    <a class="btn btn-secondary btn-lg btn-block">Não!</a>
+</form>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<a class="btn btn-primary btn-lg btn-block" href="{{url_for('tecnologia.cadastrar')}}">Cadastrar Tecnologia</a>
+<table class="table table-borderless">
+<thead>
+    <tr>
+    <th scope="col">ID</th>
+    <th scope="col">Nome</th>
+    <th scope="col">Tipo</th>
+    <th scope="col">Opções</th>
+    </tr>
+</thead>
+<tbody>
+    {% for tecnologia in tecnologias %}
+    <tr>
+        <th scope="row">{{tecnologia.id}}</th>
+        <td>{{tecnologia.nome}}</td>
+        <td>{{tecnologia.tipo}}</td>
+        <td>@mdo</td>
+    </tr>
+    {% endfor %}
+</tbody>
+</table>
+{% endblock %}

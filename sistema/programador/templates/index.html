@@ -18,7 +18,10 @@
         <th scope="row">{{programador.id}}</th>
         <td>{{programador.nome}}</td>
         <td>{{programador.experiencia}} anos</td>
-        <td>@mdo</td>
+        <td>
+          <a href="{{url_for('programador.editar_programador',_id=programador.id)}}"><i class="fas fa-edit"></i></a>
+          <a href="{{url_for('programador.excluir_programador',_id=programador.id)}}"><i class="fas fa-user-minus"></i></a>
+        </td>
       </tr>
       {% endfor %}
     </tbody>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <label for="nome">Nome da tecnologia:</label>
+        <input type="text" name="nome" id="nome" class="form-control" placeholder="Ex: Java Escripete">
+        <br>
+        <label for="tipo">Experiência de mercado:</label>
+        <input type="text" name="tipo" id="tipo" class="form-control" placeholder="Ex: Linguagem, Banco de Dados, Framework, etc...">
+        <br>
+        <input type="submit" value="Cadastrar!" class="btn btn-primary btn-block">
+    </form>
+</div>
+{% endblock %}
