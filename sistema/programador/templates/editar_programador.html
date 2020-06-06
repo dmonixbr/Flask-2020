@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <form action="" method="POST">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+        <label for="nome">Nome do programador:</label>
+        <input type="text" name="nome" id="nome" class="form-control" value="{{programador.nome}}">
+        <br>
+        <label for="experiencia">Experiência de mercado:</label>
+        <input type="number" name="exp" id="experiencia" class="form-control" value="{{programador.experiencia}}">
+        <br>
+        <input type="submit" value="Editar!" class="btn btn-primary btn-block">
+    </form>
+</div>
+{% endblock %}
