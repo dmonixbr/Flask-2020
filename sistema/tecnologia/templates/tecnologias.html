@@ -17,7 +17,7 @@
         <th scope="row">{{tecnologia.id}}</th>
         <td>{{tecnologia.nome}}</td>
         <td>{{tecnologia.tipo}}</td>
-        <td>@mdo</td>
+        <td><a href="{{url_for('tecnologia.editar_tecnologia',_id=tecnologia.id)}}"><i class="fas fa-edit"></i></a><a href="{{url_for('tecnologia.excluir_tecnologia',_id=tecnologia.id)}}"><i class="fas fa-trash"></i></a></td>
     </tr>
     {% endfor %}
 </tbody>
