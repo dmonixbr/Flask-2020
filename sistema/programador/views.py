@@ -68,3 +68,8 @@ def atribuir_tecnologia(_id):
         return redirect(url_for('programador.index'))
     return render_template('atrubuir_tecnologia.html', programador = programador, tecnologias = tecnologias)
 
+@programador.route('/perfil/<int:_id>')
+def perfil(_id):
+    programador = Programador.query.get_or_404(_id)
+
+    return render_template('perfil_programador.html', programador = programador)

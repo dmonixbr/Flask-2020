@@ -51,3 +51,9 @@ def excluir_tecnologia(_id):
         return redirect(url_for('tecnologia.index'))
 
     return render_template('excluir_tecnologia.html', tecnologia = tecnologia)
+
+@tecnologia.route('/perfil/<int:_id>')
+def perfil(_id):
+    tecnologia = Tecnologia.query.get_or_404(_id)
+
+    return render_template('perfil_tecnologia.html', tecnologia = tecnologia)

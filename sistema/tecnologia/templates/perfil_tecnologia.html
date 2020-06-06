@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<a class="btn btn-primary btn-lg btn-block" href="{{url_for('programador.cadastrar')}}">Cadastrar Programador</a>
-
 <table class="table table-borderless">
     <thead>
       <tr>
@@ -13,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      {% for programador in programadores %}
+      {% for programador in tecnologia.programadores %}
       <tr>
         <th scope="row">{{programador.id}}</th>
         <td><a href="{{url_for('programador.perfil',_id=programador.id)}}">{{programador.nome}}</a></td>
@@ -21,7 +19,6 @@
         <td>
           <a href="{{url_for('programador.editar_programador',_id=programador.id)}}"><i class="fas fa-edit"></i></a>
           <a href="{{url_for('programador.excluir_programador',_id=programador.id)}}"><i class="fas fa-user-minus"></i></a>
-          <a href="{{url_for('programador.atribuir_tecnologia',_id=programador.id)}}"><i class="far fa-plus-square"></i></a>
         </td>
       </tr>
       {% endfor %}
