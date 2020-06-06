@@ -1,66 +1,54 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar Programador</button>
+<a class="btn btn-primary btn-lg btn-block" href="{{url_for('programador.cadastrar')}}">Cadastrar Programador</a>
 
-    <table class="table table-borderless">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+<table class="table table-borderless">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Experiencia</th>
+        <th scope="col">Opções</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for programador in programadores %}
+      <tr>
+        <th scope="row">{{programador.id}}</th>
+        <td><a href="{{url_for('programador.perfil',_id=programador.id)}}">{{programador.nome}}</a></td>
+        <td>{{programador.experiencia}} anos</td>
+        <td>
+          <a href="{{url_for('programador.editar_programador',_id=programador.id)}}"><i class="fas fa-edit"></i></a>
+          <a href="{{url_for('programador.excluir_programador',_id=programador.id)}}"><i class="fas fa-user-minus"></i></a>
+          <a href="{{url_for('programador.atribuir_tecnologia',_id=programador.id)}}"><i class="far fa-plus-square"></i></a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
-      <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar Tecnologia</button>
-        <table class="table table-borderless">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            </tr>
-            <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            </tr>
-        </tbody>
-        </table>
+  <a class="btn btn-primary btn-lg btn-block" href="{{url_for('tecnologia.cadastrar')}}">Cadastrar Tecnologia</a>
+  <table class="table table-borderless">
+  <thead>
+      <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Opções</th>
+      </tr>
+  </thead>
+  <tbody>
+      {% for tecnologia in tecnologias %}
+      <tr>
+          <th scope="row">{{tecnologia.id}}</th>
+          <td><a href="{{url_for('tecnologia.perfil',_id=tecnologia.id)}}">{{tecnologia.nome}}</a></td>
+          <td>{{tecnologia.tipo}}</td>
+          <td><a href="{{url_for('tecnologia.editar_tecnologia',_id=tecnologia.id)}}"><i class="fas fa-edit"></i></a>
+              <a href="{{url_for('tecnologia.excluir_tecnologia',_id=tecnologia.id)}}"><i class="fas fa-trash"></i></a>
+          </td>
+      </tr>
+      {% endfor %}
+  </tbody>
+  </table>
 {% endblock %}
