@@ -21,6 +21,7 @@
         <td>
           <a href="{{url_for('programador.editar_programador',_id=programador.id)}}"><i class="fas fa-edit"></i></a>
           <a href="{{url_for('programador.excluir_programador',_id=programador.id)}}"><i class="fas fa-user-minus"></i></a>
+          <a href="{{url_for('programador.atribuir_tecnologia',_id=programador.id)}}"><i class="far fa-plus-square"></i></a>
         </td>
       </tr>
       {% endfor %}

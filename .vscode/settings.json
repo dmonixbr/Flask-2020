@@ -1,3 +1,5 @@
 {
-    "python.pythonPath": "C:\\Users\\victo\\anaconda3\\envs\\flask2020\\python.exe"
+    "python.pythonPath": "C:\\Users\\victo\\anaconda3\\envs\\flask2020\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true
 }
