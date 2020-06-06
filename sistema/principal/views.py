@@ -1,8 +1,8 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 
 principal = Blueprint('principal', __name__)
 
 @principal.route('/')
 def index():
 
-    return "oi"
+    return render_template("index.html")
