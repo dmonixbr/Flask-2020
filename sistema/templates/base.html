@@ -12,11 +12,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
   <!-- Material Kit CSS -->
   <link href="{{url_for('static',filename='dashboard/assets/css/material-dashboard.min.css')}}" rel="stylesheet" >
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
 </head>
 
 <body>
   <div class="wrapper ">
-    <div class="sidebar" data-color="green" data-background-color="white">
+    <div class="sidebar" data-color="purple" data-background-color="white">
       <!--
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
 
@@ -33,9 +34,21 @@
       <div class="sidebar-wrapper">
         <ul class="nav">
           <li class="nav-item active  ">
-            <a class="nav-link" href="#0">
+            <a class="nav-link" href="{{url_for('principal.index')}}">
               <i class="material-icons">dashboard</i>
               <p>Dashboard</p>
+            </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link" href="{{url_for('programador.index')}}">
+              <i class="fab fa-dev material-icons"></i>
+              Programadores
+            </a>
+          </li>
+          <li class="nav-item  ">
+            <a class="nav-link" href="{{url_for('tecnologia.index')}}">
+              <i class="fas fa-wrench material-icons"></i>
+              Tecnologias
             </a>
           </li>
           <!-- your sidebar here -->
@@ -99,6 +112,8 @@
     </div>
   </div>
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js"></script>
 
 {% block scripts %}
 {% endblock %}
