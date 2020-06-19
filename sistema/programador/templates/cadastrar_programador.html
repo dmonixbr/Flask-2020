@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="container">
-    <form action="" method="POST">
+    <form action="" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <label for="nome">Nome do programador:</label>
         <input type="text" name="nome" id="nome" class="form-control" placeholder="Ex: Geoelinton dos Santos de Pelé">
@@ -10,6 +10,8 @@
         <label for="experiencia">Experiência de mercado:</label>
         <input type="number" name="exp" id="experiencia" class="form-control" placeholder="Em anos">
         <br>
+        <div class="input-group mb-3">
+        <input type="file" name="avatar">
         <input type="submit" value="Cadastrar!" class="btn btn-primary btn-block">
     </form>
 </div>

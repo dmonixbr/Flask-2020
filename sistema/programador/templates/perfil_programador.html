@@ -23,4 +23,5 @@
     {% endfor %}
 </tbody>
 </table>
+<img src="{{url_for('static', filename='avatares/{}'.format(programador.avatar))}}">
 {% endblock %}

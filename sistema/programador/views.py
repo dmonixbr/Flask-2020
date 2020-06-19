@@ -1,4 +1,5 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+import os
+from flask import Blueprint, render_template, request, redirect, url_for, current_app
 from sistema import db
 from sistema.programador.models import Programador
 from sistema.tecnologia.models import Tecnologia
@@ -15,9 +16,15 @@ def cadastrar():
     if request.method == "POST":
         nome = request.form['nome']
         experiencia = request.form['exp']
+        avatar = request.files['avatar']
+
+        filename = avatar.filename
+        filepath = os.path.join(current_app.root_path, 'static', 'avatares', filename)
+        avatar.save(filepath)
 
         programador = Programador(nome = nome,
-                                  experiencia = experiencia)
+                                  experiencia = experiencia,
+                                  avatar = filename)
         db.session.add(programador)
         db.session.commit()
 
@@ -31,10 +38,20 @@ def editar_programador(_id):
     if request.method == 'POST':
         nome = request.form['nome']
         experiencia = request.form['exp']
+        avatar = request.files['avatar']
+
+        filepath_antigo = os.path.join(current_app.root_path, 'static', 'avatares', programador.avatar)
+        os.remove(filepath_antigo)
+
+        filename = avatar.filename
+        filepath = os.path.join(current_app.root_path, 'static', 'avatares', filename)
+        avatar.save(filepath)
+
 
         programador.nome = nome
         programador.experiencia = experiencia
-
+        programador.avatar = filename
+        
         db.session.commit()
 
         return redirect(url_for('programador.index'))

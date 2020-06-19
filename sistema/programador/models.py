@@ -7,4 +7,5 @@ class Programador(db.Model):
     id                  = db.Column(db.Integer, primary_key=True)
     nome                = db.Column(db.String(30), nullable=False)
     experiencia         = db.Column(db.Integer, nullable=False)
+    avatar              = db.Column(db.String(120))
     tecnologias         = db.relationship("Tecnologia", secondary=ProgramadorTecnologia, back_populates="programadores")
